@@ -45,8 +45,17 @@ public class Program {
 
 			HourContract contract = new HourContract(contractDate, valuePerHour, hours);
 			worker.addContract(contract);
-
 		}
+
+		System.out.println();
+		System.out.print("Enter month and year to calculate income (MM/YYYY):  ");
+		String monthAndYaer = sc.next();
+		int month = Integer.parseInt(monthAndYaer.substring(0, 2));
+		int year = Integer.parseInt(monthAndYaer.substring(3));
+
+		System.out.println("Name: " + worker.getName());
+		System.out.println("Department:  " + worker.getDepartment().getName());
+		System.out.println("Income for " + monthAndYaer + ":  " + String.format("%.2f", worker.income(year, month)));
 
 		sc.close();
 
